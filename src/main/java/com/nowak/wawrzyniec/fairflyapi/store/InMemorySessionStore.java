@@ -47,6 +47,7 @@ public class InMemorySessionStore implements SessionStore {
         }
         if (isValid(session)) {
             usedSessions.add(session);
+            api.keepAlive(session);
             return Optional.of(session);
         }
         api.closeSession(session);

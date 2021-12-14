@@ -32,6 +32,7 @@ class SessionStoreTest {
         Optional<Session> session = store.getSession();
 
         assertTrue(session.isPresent());
+        verify(api, times(1)).keepAlive(session.get());
     }
 
     @Test
